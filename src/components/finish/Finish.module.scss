@@ -1,0 +1,12 @@
+.finish{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    button{
+     cursor: pointer;
+     &:focus{
+         transform: scale(.95);
+     }
+    }
+}

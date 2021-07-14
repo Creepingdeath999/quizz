@@ -1,0 +1,64 @@
+.Home {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.selector {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.selector select {
+  width: 400px;
+  max-width: 100%;
+  padding: 10px 20px;
+  outline: none;
+  margin-bottom: 20px;
+}
+
+.clicked {
+  background-color: red;
+}
+
+@media screen and (max-width: 800px) {
+  .Home {
+    width: 100vw;
+    overflow: hidden;
+  }
+  .selector {
+    width: 100%;
+    margin-top: 20px;
+    padding: 0px 5px;
+  }
+  .difficulty {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    padding: 0 5px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .difficulty * {
+    width: 100%;
+    margin: 5px 0px;
+  }
+}
+/*# sourceMappingURL=Choose.module.css.map */

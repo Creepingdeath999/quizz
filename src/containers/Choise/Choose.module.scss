@@ -1,0 +1,45 @@
+.Home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.selector{
+    display: flex;
+    justify-content: center;
+    select{
+    width: 400px;
+    max-width: 100%;
+    padding:10px 20px;
+    outline: none;
+    margin-bottom: 20px;
+    }
+}
+.clicked {
+    background-color: red;
+}
+
+
+
+@media screen and(max-width:800px){
+    .Home{
+        width: 100vw;
+        overflow: hidden;
+    }
+
+    .selector{
+     width: 100%;
+      margin-top: 20px;
+      padding:0px 5px;
+    }
+    .difficulty{
+        display: flex;
+        width: 100%;
+        padding:0 5px;
+        flex-direction: column;
+        *{
+           width: 100%;
+           margin:5px 0px
+        }
+    }
+}

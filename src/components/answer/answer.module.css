@@ -1,0 +1,13 @@
+.answer{
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: hsl(186, 14%, 43%);
+    color:hsl(0, 0%, 100%);
+    text-shadow: 0 0 1px hsl(185, 41%, 84%);
+    padding: 5px;
+    margin: 4px;
+}
+.correct{
+    background-color: green !important;
+}

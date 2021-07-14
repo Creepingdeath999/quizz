@@ -1,0 +1,110 @@
+.container {
+  width: 600px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #fff;
+}
+
+.container span {
+  font-size: 3rem;
+  border: 2px solid #fff;
+  padding: 10px;
+  -webkit-box-shadow: 0 0 31px rgba(0, 0, 0, 0.6);
+          box-shadow: 0 0 31px rgba(0, 0, 0, 0.6);
+}
+
+.container .question {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.container .question P {
+  height: 100px;
+  margin-top: 10px;
+  margin-bottom: 50px;
+  font-size: 2rem;
+  width: 100%;
+  text-align: center;
+}
+
+.answers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.answers button {
+  width: 100%;
+  font-size: 1.3rem;
+}
+
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 10px 50px;
+  margin: 20px 0px;
+  font-weight: bold;
+  background-color: #c5e4e7;
+}
+
+h2 {
+  font-size: 2rem;
+  background-color: #505d5d;
+  text-align: center;
+  height: 50px;
+  width: 99%;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+  background-color: cadetblue;
+  color: #fff;
+  padding: 5px 50px;
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 800px) {
+  .container {
+    width: 100vw;
+    padding: 5px;
+  }
+  p {
+    font-size: 1.5rem !important;
+  }
+  a {
+    margin-top: 20px;
+  }
+}
+/*# sourceMappingURL=Questions.module.css.map */
