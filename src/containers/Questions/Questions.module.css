@@ -16,14 +16,6 @@
   color: #fff;
 }
 
-.container span {
-  font-size: 3rem;
-  border: 2px solid #fff;
-  padding: 10px;
-  -webkit-box-shadow: 0 0 31px rgba(0, 0, 0, 0.6);
-          box-shadow: 0 0 31px rgba(0, 0, 0, 0.6);
-}
-
 .container .question {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -93,6 +85,32 @@ a {
   color: #fff;
   padding: 5px 50px;
   margin-bottom: 10px;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header span, header a {
+  font-size: 3rem;
+  border: 2px solid #fff;
+  padding: 10px;
+  -webkit-box-shadow: 0 0 31px rgba(0, 0, 0, 0.6);
+          box-shadow: 0 0 31px rgba(0, 0, 0, 0.6);
+}
+
+header a {
+  font-size: 1rem;
+  padding: 30px;
 }
 
 .correctAnswer {

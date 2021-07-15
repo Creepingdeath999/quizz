@@ -6,14 +6,13 @@ import Answer from '../../components/answer/Answer'
 import styles from './Questions.module.css'
 import Question from '../../components/Question/Question'
 import Finish from '../../components/finish/Finish'
-
+import Spinner from '../../components/spinner/Spinner'
 import { NavLink, Redirect } from 'react-router-dom'
 export default function Questions() {
 
     ///state
     const { categories } = useContext(QuestionContext)
     const [category] = categories
-    let history = useHistory()
     const { difficulties } = useContext(QuestionContext)
     const [difficulty] = difficulties
 
@@ -31,7 +30,7 @@ export default function Questions() {
     const {scores} = useContext(QuestionContext)
     const [score, setScore] = scores
 
-    const [disable, setDisable] = useState(false)
+    const [disable, setDisable] = useState(true)
     const [correct, setCorrect]= useState('')
     useEffect(() => {
 
@@ -99,6 +98,7 @@ export default function Questions() {
 
     function displayCorrectAnswer () {
         setCorrect(content[index].answer)
+        setDisable(false)
     }
      function check() {
         if (content[index].answer === answer) {
@@ -110,30 +110,30 @@ export default function Questions() {
             setDisableAnswer(true)
             nextQuestion()           
         }
-
+   setDisable(true)
     }
     //try again
     function tryAgain () {
         setIndex(0)
         setCorrect('')
-        setDisable(false)
+        setDisable(true)
         setDisableAnswer(false)
         setScore(0)
     }
 
-   let loader= <h1>LOADING</h1>;
+   let loader= <Spinner />
    if(index  > 9) {
        loader=<Finish score={score} click={tryAgain} />
    }
     return (
+        index<10 && content ?
         <div className={styles.container}>
+            <header> 
                <NavLink to="/" onClick={tryAgain}>HOME</NavLink>
-           {index<=9 ? <span>{index+1}/10</span> : null }
-            {
-                content && index <=9 ?
-                
+                {index<=9 ? <span>{index+1}/10</span> : null }
+            </header>
                 <div className={styles.question}>
-                    <h1>{score}</h1>
+                    <h1>SCORE: {score}</h1>
                      <Question content={content[index].question} />
                     <h2>{correct}</h2>
                     
@@ -150,10 +150,8 @@ export default function Questions() {
                         }
                         <button disabled={disable} onClick={() => {check()}}>{index<=8 ? "NEXT" :"RESULT"}</button>
                     </div>
-
-                : loader
-            }
-        </div>
+            
+        </div> :loader
     )
 
 }
