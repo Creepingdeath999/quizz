@@ -79,7 +79,6 @@ export default function Questions() {
             shuffle(answers)
             formatedQuestion.answer= question.correct_answer
             formatedQuestion.answers = answers
-            console.log(formatedQuestion)
             return formatedQuestion
         })
         setContent(c)
@@ -97,20 +96,19 @@ export default function Questions() {
     //unicode converter
 
     //check answers
-    let style;
+
     function displayCorrectAnswer () {
         setCorrect(content[index].answer)
     }
-    
      function check() {
         if (content[index].answer === answer) {
-            console.log("right")
             setScore(score + 1)
             setDisableAnswer(true)
             nextQuestion()
+
         } else {
             setDisableAnswer(true)
-            nextQuestion()  
+            nextQuestion()           
         }
 
     }
@@ -129,7 +127,7 @@ export default function Questions() {
    }
     return (
         <div className={styles.container}>
-               <NavLink to="/">HOME</NavLink>
+               <NavLink to="/" onClick={tryAgain}>HOME</NavLink>
            {index<=9 ? <span>{index+1}/10</span> : null }
             {
                 content && index <=9 ?
@@ -137,11 +135,12 @@ export default function Questions() {
                 <div className={styles.question}>
                     <h1>{score}</h1>
                      <Question content={content[index].question} />
-                    <h2 style={style}>{correct}</h2>
+                    <h2>{correct}</h2>
                     
                         {
                           content[index].answers.map(a=>(
                               <div key={a} className={styles.answers}> 
+                              
                               <Answer 
                               disableAnswer={disableAnswer} 
                               val={a} 

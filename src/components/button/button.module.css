@@ -1,3 +1,7 @@
 .clicked {
     background-color: red;
 }
+.difficulty:hover, .difficulty:active, .difficulty:focus{
+    background-color: rgb(29, 82, 101);
+    color:#fff
+}
