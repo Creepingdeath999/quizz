@@ -1,37 +1,31 @@
 import React, { useEffect, useContext, useState } from 'react'
 import { QuestionContext } from '../../context/QuestionContext'
-import { useHistory } from 'react-router'
 import axios from 'axios'
 import Answer from '../../components/answer/Answer'
 import styles from './Questions.module.css'
 import Question from '../../components/Question/Question'
 import Finish from '../../components/finish/Finish'
 import Spinner from '../../components/spinner/Spinner'
-import { NavLink, Redirect } from 'react-router-dom'
+import Home from '../../components/homeBtn/Home'
 export default function Questions() {
 
-    ///state
-    const { categories } = useContext(QuestionContext)
+    ///context
+    const { categories, difficulties , answerValue,indexes,scores } = useContext(QuestionContext)
+    
     const [category] = categories
-    const { difficulties } = useContext(QuestionContext)
     const [difficulty] = difficulties
-
-    const { answerValue } = useContext(QuestionContext)
     const [answer, setAnswer] = answerValue
-
-    const url = `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}&type=multiple`
+    const [index, setIndex] = indexes
+    const [score, setScore] = scores
+    
+    const url = `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}`
+    //local state
     const [questions, setQuestions] = useState(null)
     const [loading, setLoading] = useState(true)
     const [content, setContent] = useState(null)
-    
-    const {indexes} = useContext(QuestionContext)
-    const [index, setIndex] = indexes
-    
-    const {scores} = useContext(QuestionContext)
-    const [score, setScore] = scores
-
     const [disable, setDisable] = useState(true)
     const [correct, setCorrect]= useState('')
+
     useEffect(() => {
 
         axios.get(url)
@@ -70,7 +64,7 @@ export default function Questions() {
       }
 
     function generateQuestion() {
-        const c = questions.map(question => {
+        const q = questions.map(question => {
             let formatedQuestion = {
                 question: question.question
             }
@@ -80,7 +74,7 @@ export default function Questions() {
             formatedQuestion.answers = answers
             return formatedQuestion
         })
-        setContent(c)
+        setContent(q)
     }
     const [disableAnswer, setDisableAnswer] = useState(false)
     //Control Questions
@@ -99,15 +93,16 @@ export default function Questions() {
     function displayCorrectAnswer () {
         setCorrect(content[index].answer)
         setDisable(false)
+        setDisableAnswer(true)
     }
      function check() {
         if (content[index].answer === answer) {
             setScore(score + 1)
-            setDisableAnswer(true)
+            setDisableAnswer(false)
             nextQuestion()
 
         } else {
-            setDisableAnswer(true)
+            setDisableAnswer(false)
             nextQuestion()           
         }
    setDisable(true)
@@ -129,7 +124,7 @@ export default function Questions() {
         index<10 && content ?
         <div className={styles.container}>
             <header> 
-               <NavLink to="/" onClick={tryAgain}>HOME</NavLink>
+             <Home />
                 {index<=9 ? <span>{index+1}/10</span> : null }
             </header>
                 <div className={styles.question}>
